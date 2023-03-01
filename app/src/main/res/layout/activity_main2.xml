@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="10"
+              android:gravity="center_horizontal"
+              tools:context=".MainActivity2">
+
+    <ImageView
+            android:id="@+id/imageView"
+            android:layout_weight="9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/image1"/>
+
+    <EditText
+            android:id="@+id/editTextName"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Uni"/>
+
+    <EditText
+            android:id="@+id/editTextDetail"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:text="Unknown"/>
+
+    <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_weight="0.25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+    />
+
+    <EditText
+            android:id="@+id/editTextDate"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:inputType="date"
+            android:text="25/05/2021"/>
+
+
+</LinearLayout>

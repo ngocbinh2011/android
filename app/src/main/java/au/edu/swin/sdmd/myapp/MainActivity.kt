@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.HtmlCompat
 
 class MainActivity: AppCompatActivity(){
 
@@ -32,15 +33,14 @@ class MainActivity: AppCompatActivity(){
 
         var button4 = findViewById<ImageButton>(R.id.imageButton19);
         var textViewImage4 = findViewById<TextView>(R.id.textView18);
-
-        textViewImage1.setText(Html.fromHtml("<b>" + Data.model1.name + "</b>" +  "<br />" +
-                "<small>" + Data.model1.rate + "</small>" + "<br />"))
-        textViewImage2.setText(Html.fromHtml("<b>" + Data.model2.name + "</b>" +  "<br />" +
-                "<small>" + Data.model2.rate + "</small>" + "<br />"))
-        textViewImage3.setText(Html.fromHtml("<b>" + Data.model3.name + "</b>" +  "<br />" +
-                "<small>" + Data.model3.rate + "</small>" + "<br />"))
-        textViewImage4.setText(Html.fromHtml("<b>" + Data.model4.name + "</b>" +  "<br />" +
-                "<small>" + Data.model4.rate + "</small>" + "<br />"))
+        textViewImage1.setText(HtmlCompat.fromHtml("<b>" + Data.model1.name + "</b>" +  "<br />" +
+                "<small>" + Data.model1.rate + "</small>" + "<br />",  HtmlCompat.FROM_HTML_MODE_LEGACY))
+        textViewImage2.setText(HtmlCompat.fromHtml("<b>" + Data.model2.name + "</b>" +  "<br />" +
+                "<small>" + Data.model2.rate + "</small>" + "<br />",  HtmlCompat.FROM_HTML_MODE_LEGACY))
+        textViewImage3.setText(HtmlCompat.fromHtml("<b>" + Data.model3.name + "</b>" +  "<br />" +
+                "<small>" + Data.model3.rate + "</small>" + "<br />",  HtmlCompat.FROM_HTML_MODE_LEGACY))
+        textViewImage4.setText(HtmlCompat.fromHtml("<b>" + Data.model4.name + "</b>" +  "<br />" +
+                "<small>" + Data.model4.rate + "</small>" + "<br />",  HtmlCompat.FROM_HTML_MODE_LEGACY))
 
 
         button1.setOnClickListener {

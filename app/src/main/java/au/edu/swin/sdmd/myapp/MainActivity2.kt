@@ -2,10 +2,7 @@ package au.edu.swin.sdmd.myapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.RatingBar
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity2 : AppCompatActivity() {
@@ -32,6 +29,7 @@ class MainActivity2 : AppCompatActivity() {
         var model = intent.getParcelableExtra<Model>("EXTRA_DATA");
         if (model != null) {
             image = model.image
+            setImage(model)
             editTextName.setText(model.name)
             editTextDetail.setText(model.detail)
             editTextDate.setText(model.date)
@@ -41,6 +39,15 @@ class MainActivity2 : AppCompatActivity() {
 
 
     override fun onBackPressed() {
+        var currentDate = editTextDate.text.toString()
+       if (editTextName.text.toString().isNullOrEmpty()) {
+           editTextName.error = "Name is required"
+           return
+       }
+        if (editTextDetail.text.toString().isNullOrEmpty()) {
+            editTextDetail.error = "Detail is required"
+            return
+        }
         var model = Model(
             image,
             editTextName.text.toString(),
@@ -51,5 +58,17 @@ class MainActivity2 : AppCompatActivity() {
         Data.update(model)
         var i = Intent(this, MainActivity::class.java);
         startActivity(i);
+        Toast.makeText(this, "Item updated: ${model.name}", Toast.LENGTH_SHORT).show();
+    }
+
+    fun setImage(model: Model){
+        if(model.image.compareTo(Data.model1.image) == 0)
+            imageView.setImageResource(R.drawable.image1)
+        if(model.image.compareTo(Data.model2.image) == 0)
+            imageView.setImageResource(R.drawable.image2)
+        if(model.image.compareTo(Data.model3.image) == 0)
+            imageView.setImageResource(R.drawable.image3)
+        if(model.image.compareTo(Data.model4.image) == 0)
+            imageView.setImageResource(R.drawable.image4)
     }
 }
